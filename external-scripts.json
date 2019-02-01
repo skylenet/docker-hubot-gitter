@@ -1,5 +1,4 @@
 [
   "hubot-diagnostics",
-  "hubot-redis-brain",
-  "hubot-gitter2"
+  "hubot-redis-brain"
 ]

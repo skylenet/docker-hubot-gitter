@@ -24,7 +24,8 @@ ENV HUBOT_NAME bot
 ENV HUBOT_ADAPTER gitter2
 ARG HUBOT_OWNER="Bot <bot@localhost>"
 ARG HUBOT_DESCRIPTION="Beep beep boop!"
-RUN yo hubot --adapter=gitter2 --owner="$HUBOT_OWNER" --name="$HUBOT_NAME" --description="$HUBOT_DESCRIPTION" --defaults
+RUN yo hubot --adapter=gitter2 --owner="$HUBOT_OWNER" --name="$HUBOT_NAME" --description="$HUBOT_DESCRIPTION" --defaults \
+    && npm install --save hubot-gitter2
 # Set up extra external scripts (what we consider "essentials")
 COPY external-scripts.json ./
 RUN npm install --save $(jq -c -r '.[]' external-scripts.json | tr '\n' ' ')
